@@ -39,13 +39,12 @@ namespace EntryPoint
             {
                 temparr[h] = arr[h];
             }
-
             int i = low;
             int j = middle + 1;
             int k = low;
             while (i <= middle && j <= high)
             {
-                if (Vector2.Distance(temparr[i], house) <= Vector2.Distance(temparr[j], house))
+                if (calcDistance(temparr[i]) <= calcDistance(temparr[j]))
                 {
                     arr[k] = temparr[i];
                     i++;
@@ -62,6 +61,11 @@ namespace EntryPoint
                 k++;
                 i++;
             }
+        }
+
+        private float calcDistance(Vector2 v)
+        {
+            return Vector2.Distance(v, this.house);
         }
 
         public IEnumerable<Vector2> getList()
