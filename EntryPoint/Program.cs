@@ -39,8 +39,6 @@ namespace EntryPoint
 
     private static IEnumerable<Vector2> SortSpecialBuildingsByDistance(Vector2 house, IEnumerable<Vector2> specialBuildings)
     {
-        //This is where we do stuff for assignment 1.
-        //Time for Merge Sort!
         Merge merge = new Merge();
         merge.sort(house, specialBuildings);
         return merge.getList();

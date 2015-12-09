@@ -15,7 +15,6 @@ namespace EntryPoint
 
         public void sort(Vector2 house, IEnumerable<Vector2> specialBuildings)
         {
-
             this.arr = specialBuildings.ToArray();
             this.house = house;
             int length = specialBuildings.Count();
