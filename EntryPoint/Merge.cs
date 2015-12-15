@@ -11,14 +11,19 @@ namespace EntryPoint
     {
         private Vector2[] arr;
         private Vector2[] temparr;
-        Vector2 house;
+        private Vector2 house;
+        private int length;
 
-        public void sort(Vector2 house, IEnumerable<Vector2> specialBuildings)
+        public Merge(Vector2 house, IEnumerable<Vector2> specialBuildings)
         {
             this.arr = specialBuildings.ToArray();
             this.house = house;
-            int length = specialBuildings.Count();
+            this.length = specialBuildings.Count();
             this.temparr = new Vector2[length];
+        }
+
+        public void sort()
+        {
             split(0, length-1);
         }
 

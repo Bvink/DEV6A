@@ -39,8 +39,8 @@ namespace EntryPoint
 
     private static IEnumerable<Vector2> SortSpecialBuildingsByDistance(Vector2 house, IEnumerable<Vector2> specialBuildings)
     {
-        Merge merge = new Merge();
-        merge.sort(house, specialBuildings);
+        Merge merge = new Merge(house, specialBuildings);
+        merge.sort();
         return merge.getList();
     }
 
@@ -48,12 +48,10 @@ namespace EntryPoint
       IEnumerable<Vector2> specialBuildings, 
       IEnumerable<Tuple<Vector2, float>> housesAndDistances)
     {
-      return
-          from h in housesAndDistances
-          select
-            from s in specialBuildings
-            where Vector2.Distance(h.Item1, s) <= h.Item2
-            select s;
+        //  housesAndDistances has the pos. of the house and a float that indicates the range to search in, GAME takes THIS range.
+        //  specialBuildings seems to be a list of all special buildings.
+        TreeSearch tree = new TreeSearch(specialBuildings, housesAndDistances);
+        return tree.search();
     }
 
     private static IEnumerable<Tuple<Vector2, Vector2>> FindRoute(Vector2 startingBuilding, 
