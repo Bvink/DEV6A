@@ -51,7 +51,8 @@ namespace EntryPoint
         //  housesAndDistances has the pos. of the house and a float that indicates the range to search in, GAME takes THIS range.
         //  specialBuildings seems to be a list of all special buildings.
         TreeSearch tree = new TreeSearch(specialBuildings, housesAndDistances);
-        return tree.search();
+        tree.search();
+        return tree.getResults();
     }
 
     private static IEnumerable<Tuple<Vector2, Vector2>> FindRoute(Vector2 startingBuilding, 
