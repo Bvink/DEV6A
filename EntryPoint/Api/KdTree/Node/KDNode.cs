@@ -9,11 +9,11 @@ namespace EntryPoint.Api.KdTree.Node
 {
     class KDNode
     {
-        protected HPoint k;
+        protected Coord k;
         public Object v;
         protected KDNode left, right;
 
-        public static KDNode insert(HPoint key, Object val, KDNode t, int lev, int K)
+        public static KDNode insert(Coord key, Object val, KDNode t, int lev, int K)
         {
             if (t == null)
             {
@@ -38,7 +38,7 @@ namespace EntryPoint.Api.KdTree.Node
         }
 
 
-        public static void rsearch(HPoint lowk, HPoint uppk, KDNode t, int lev,
+        public static void rsearch(Coord lowk, Coord uppk, KDNode t, int lev,
                   int K, List<KDNode> v)
         {
 
@@ -58,7 +58,7 @@ namespace EntryPoint.Api.KdTree.Node
             }
         }
 
-        private KDNode(HPoint key, Object val)
+        private KDNode(Coord key, Object val)
         {
             k = key;
             v = val;

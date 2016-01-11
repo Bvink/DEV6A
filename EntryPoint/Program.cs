@@ -61,6 +61,7 @@ namespace EntryPoint
     //EXCERSIZE 3
     private static IEnumerable<Tuple<Vector2, Vector2>> FindRoute(Vector2 startingBuilding, 
       Vector2 destinationBuilding, IEnumerable<Tuple<Vector2, Vector2>> roads)
+    { 
       Dijkstra dijkstra = new Dijkstra(startingBuilding, destinationBuilding, roads);
       return dijkstra.result();
     }

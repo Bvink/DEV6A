@@ -1,5 +1,6 @@
 ﻿using EntryPoint.Api.KdTree.exceptions;
 using EntryPoint.Api.KdTree.Node;
+using EntryPoint.Api.KdTree.Point;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +33,7 @@ namespace EntryPoint.Api.KdTree
 
             else try
                 {
-                    m_root = KDNode.insert(new HPoint(key), value, m_root, 0, m_K);
+                    m_root = KDNode.insert(new Coord(key), value, m_root, 0, m_K);
                 }
 
                 catch (KeyDuplicateException e)
@@ -59,7 +60,7 @@ namespace EntryPoint.Api.KdTree
             else
             {
                 List<KDNode> v = new List<KDNode>();
-                KDNode.rsearch(new HPoint(lowk), new HPoint(uppk),
+                KDNode.rsearch(new Coordinate(lowk), new Coordinate(uppk),
                        m_root, 0, m_K, v);
                 Object[] o = new Object[v.Count];
                 for (int i = 0; i < v.Count; ++i)

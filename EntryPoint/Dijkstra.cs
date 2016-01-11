@@ -20,6 +20,13 @@ namespace EntryPoint
             this.startingBuilding = startingBuilding;
             this.destinationBuilding = destinationBuilding;
             this.roads = roads;
+            Vector2 v = new Vector2(2, 2);
+            foreach (Tuple<Vector2, Vector2> road in roads)
+            {
+                
+                if(road.Item1 == v || road.Item2 == v)
+                    Console.WriteLine(road);
+            }
         }
 
         public IEnumerable<Tuple<Vector2, Vector2>> result()

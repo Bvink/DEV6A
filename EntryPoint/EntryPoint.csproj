@@ -47,6 +47,7 @@
     <Compile Include="Api\KdTree\Hyper\HPoint.cs" />
     <Compile Include="Api\KdTree\KDTree.cs" />
     <Compile Include="Api\KdTree\Node\KDNode.cs" />
+    <Compile Include="Dijkstra.cs" />
     <Compile Include="Merge.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
