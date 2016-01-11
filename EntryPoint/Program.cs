@@ -13,7 +13,7 @@ namespace EntryPoint
     {
       var fullscreen = false;
       read_input:
-      switch (Microsoft.VisualBasic.Interaction.InputBox("Which assignment shall run next? (1, 2, 3, 4, or q for quit)", "Choose assignment", VirtualCity.GetInitialValue()))
+      switch (Microsoft.VisualBasic.Interaction.InputBox("Which assignment shall run next? (1, 2, 3, or q for quit)", "Choose assignment", VirtualCity.GetInitialValue()))
       {
         case "1":
           using (var game = VirtualCity.RunAssignment1(SortSpecialBuildingsByDistance, fullscreen))
@@ -28,8 +28,9 @@ namespace EntryPoint
             game.Run();
           break;
         case "4":
-          using (var game = VirtualCity.RunAssignment4(FindRoutesToAll, fullscreen))
-            game.Run();
+          //using (var game = VirtualCity.RunAssignment4(FindRoutesToAll, fullscreen))
+            //game.Run();
+            //We're not doing Floyd Warshall.
           break;
         case "q":
           return;
@@ -37,6 +38,7 @@ namespace EntryPoint
       goto read_input;
     }
 
+    //EXCERCISE 1 = DONE
     private static IEnumerable<Vector2> SortSpecialBuildingsByDistance(Vector2 house, IEnumerable<Vector2> specialBuildings)
     {
         Merge merge = new Merge(house, specialBuildings);
@@ -44,6 +46,7 @@ namespace EntryPoint
         return merge.getList();
     }
 
+    //EXCERCISE 2 = DONE
     private static IEnumerable<IEnumerable<Vector2>> FindSpecialBuildingsWithinDistanceFromHouse(
       IEnumerable<Vector2> specialBuildings, 
       IEnumerable<Tuple<Vector2, float>> housesAndDistances)
@@ -55,20 +58,14 @@ namespace EntryPoint
         return tree.getResults();
     }
 
+    //EXCERSIZE 3
     private static IEnumerable<Tuple<Vector2, Vector2>> FindRoute(Vector2 startingBuilding, 
       Vector2 destinationBuilding, IEnumerable<Tuple<Vector2, Vector2>> roads)
-    {
-      var startingRoad = roads.Where(x => x.Item1.Equals(startingBuilding)).First();
-      List<Tuple<Vector2, Vector2>> fakeBestPath = new List<Tuple<Vector2, Vector2>>() { startingRoad };
-      var prevRoad = startingRoad;
-      for (int i = 0; i < 30; i++)
-      {
-        prevRoad = (roads.Where(x => x.Item1.Equals(prevRoad.Item2)).OrderBy(x => Vector2.Distance(x.Item2, destinationBuilding)).First());
-        fakeBestPath.Add(prevRoad);
-      }
-      return fakeBestPath;
+      Dijkstra dijkstra = new Dijkstra(startingBuilding, destinationBuilding, roads);
+      return dijkstra.result();
     }
 
+    //WE'RE NOT DOING THIS ONE
     private static IEnumerable<IEnumerable<Tuple<Vector2, Vector2>>> FindRoutesToAll(Vector2 startingBuilding, 
       IEnumerable<Vector2> destinationBuildings, IEnumerable<Tuple<Vector2, Vector2>> roads)
     {
