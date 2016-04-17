@@ -33,7 +33,7 @@ namespace EntryPoint.Api.KdTree
 
             else try
                 {
-                    m_root = KDNode.insert(new Coord(key), value, m_root, 0, m_K);
+                    m_root = KDNode.insert(new Coordinate(key), value, m_root, 0, m_K);
                 }
 
                 catch (KeyDuplicateException e)

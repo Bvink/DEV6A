@@ -42,16 +42,18 @@
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Api\KdTree\exceptions\KeyDuplicateException.cs" />
-    <Compile Include="Api\KdTree\exceptions\KeySizeException.cs" />
-    <Compile Include="Api\KdTree\Hyper\HPoint.cs" />
-    <Compile Include="Api\KdTree\KDTree.cs" />
-    <Compile Include="Api\KdTree\Node\KDNode.cs" />
+    <Compile Include="api\dijkstra\Edge.cs" />
+    <Compile Include="api\dijkstra\Node.cs" />
+    <Compile Include="api\kdtree\exceptions\KeyDuplicateException.cs" />
+    <Compile Include="api\kdtree\exceptions\KeySizeException.cs" />
+    <Compile Include="api\kdtree\KDTree.cs" />
+    <Compile Include="api\kdtree\node\KDNode.cs" />
+    <Compile Include="api\kdtree\point\Coordinate.cs" />
     <Compile Include="Dijkstra.cs" />
+    <Compile Include="TreeSearch.cs" />
     <Compile Include="Merge.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TreeSearch.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />

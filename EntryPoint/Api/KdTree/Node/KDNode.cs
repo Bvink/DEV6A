@@ -1,4 +1,5 @@
 ﻿using EntryPoint.Api.KdTree.exceptions;
+using EntryPoint.Api.KdTree.Point;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace EntryPoint.Api.KdTree.Node
 {
     class KDNode
     {
-        protected Coord k;
+        protected Coordinate k;
         public Object v;
         protected KDNode left, right;
 
-        public static KDNode insert(Coord key, Object val, KDNode t, int lev, int K)
+        public static KDNode insert(Coordinate key, Object val, KDNode t, int lev, int K)
         {
             if (t == null)
             {
@@ -38,7 +39,7 @@ namespace EntryPoint.Api.KdTree.Node
         }
 
 
-        public static void rsearch(Coord lowk, Coord uppk, KDNode t, int lev,
+        public static void rsearch(Coordinate lowk, Coordinate uppk, KDNode t, int lev,
                   int K, List<KDNode> v)
         {
 
@@ -58,7 +59,7 @@ namespace EntryPoint.Api.KdTree.Node
             }
         }
 
-        private KDNode(Coord key, Object val)
+        private KDNode(Coordinate key, Object val)
         {
             k = key;
             v = val;

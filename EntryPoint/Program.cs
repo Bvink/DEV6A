@@ -52,13 +52,13 @@ namespace EntryPoint
       IEnumerable<Tuple<Vector2, float>> housesAndDistances)
     {
         //  housesAndDistances has the pos. of the house and a float that indicates the range to search in, GAME takes THIS range.
-        //  specialBuildings seems to be a list of all special buildings.
+        //  specialBuildings is a list of all special buildings.
         TreeSearch tree = new TreeSearch(specialBuildings, housesAndDistances);
         tree.search();
         return tree.getResults();
     }
 
-    //EXCERSIZE 3
+    //EXCERSIZE 3 = DONE
     private static IEnumerable<Tuple<Vector2, Vector2>> FindRoute(Vector2 startingBuilding, 
       Vector2 destinationBuilding, IEnumerable<Tuple<Vector2, Vector2>> roads)
     { 
@@ -67,9 +67,11 @@ namespace EntryPoint
     }
 
     //WE'RE NOT DOING THIS ONE
+    /*
     private static IEnumerable<IEnumerable<Tuple<Vector2, Vector2>>> FindRoutesToAll(Vector2 startingBuilding, 
       IEnumerable<Vector2> destinationBuildings, IEnumerable<Tuple<Vector2, Vector2>> roads)
     {
+
       List<List<Tuple<Vector2, Vector2>>> result = new List<List<Tuple<Vector2, Vector2>>>();
       foreach (var d in destinationBuildings)
       {
@@ -85,6 +87,7 @@ namespace EntryPoint
       }
       return result;
     }
+  */
   }
 #endif
 }

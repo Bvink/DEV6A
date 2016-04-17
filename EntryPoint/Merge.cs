@@ -24,7 +24,7 @@ namespace EntryPoint
 
         public void sort()
         {
-            split(0, length-1);
+            split(0, length - 1);
         }
 
         private void split(int low, int high)
@@ -54,7 +54,8 @@ namespace EntryPoint
                     arr[k] = temparr[i];
                     i++;
                 }
-                else {
+                else
+                {
                     arr[k] = temparr[j];
                     j++;
                 }
